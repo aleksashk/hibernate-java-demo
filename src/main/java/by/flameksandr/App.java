@@ -1,8 +1,11 @@
 package by.flameksandr;
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+    public static void main(String[] args) {
+        SessionFactory sessionFactory = new Configuration()
+                .buildSessionFactory();
     }
 }

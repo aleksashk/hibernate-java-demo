@@ -28,11 +28,17 @@ public class App {
 
 
             //UPDATE
+//            session = sessionFactory.getCurrentSession();
+//            session.beginTransaction();
+//            Item itemFromDb = session.get(Item.class, 1L);
+//            System.out.println(itemFromDb);
+//            itemFromDb.setPrice(200);
+
+            //DELETE
             session = sessionFactory.getCurrentSession();
             session.beginTransaction();
             Item itemFromDb = session.get(Item.class, 1L);
-            System.out.println(itemFromDb);
-            itemFromDb.setPrice(200);
+            session.remove(itemFromDb);
 
 
             session.getTransaction().commit();

@@ -37,9 +37,10 @@ public class App {
             //DELETE
             session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            Item itemFromDb = session.get(Item.class, 1L);
-            session.remove(itemFromDb);
 
+            Item itemFromDb = session.createQuery("SELECT i FROM Item i where i.id = 1", Item.class)
+                            .getSingleResult();
+            System.out.println(itemFromDb);
 
             session.getTransaction().commit();
 
